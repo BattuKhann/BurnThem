@@ -8,6 +8,8 @@ public partial class Player : RigidBody3D
 	float pitch_input = 0.00f;
 	float test_poo = 1;
 
+	// test comment
+
 	private Node3D _twistPivot;
 	private Node3D _pitchPivot;
 	// Called when the node enters the scene tree for the first time.

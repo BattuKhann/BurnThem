@@ -1,4 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1729807762
+::res://::1729812353
 icon.svg::CompressedTexture2D::7661252752719481718::1729807483::1729807765::1::::<><>::
+Player.cs::CSharpScript::-1::1729811711::0::1::::<><>::
 README.md::TextFile::-1::1729807483::0::1::::<><>::
+::res://Assets/::1729812347
+::res://Scenes/::1729812353
+Main.tscn::PackedScene::6806252226927861563::1729812353::0::1::::<><>::uid://bg4rnvvhy5kx2::::res://Scenes/Player.tscn
+Player.tscn::PackedScene::2868477240369379681::1729812354::0::1::::<><>::res://Player.cs
+::res://Scripts/::1729812342
