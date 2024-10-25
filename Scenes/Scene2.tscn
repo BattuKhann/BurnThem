@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://diqlbkuyslp0o"]
+
+[ext_resource type="PackedScene" uid="uid://6xxjggmgqrht" path="res://Scenes/Ghost.tscn" id="1_frf6x"]
+[ext_resource type="PackedScene" uid="uid://dbfmrbnn3jncl" path="res://Scenes/Grave.tscn" id="2_qab4j"]
+[ext_resource type="PackedScene" uid="uid://bg4rnvvhy5kx2" path="res://Scenes/Player.tscn" id="3_lmngq"]
+
+[node name="Scene2" type="Node3D"]
+
+[node name="Ghost" parent="." instance=ExtResource("1_frf6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91007, 0, 0)
+
+[node name="Grave" parent="." instance=ExtResource("2_qab4j")]
+
+[node name="Player" parent="." instance=ExtResource("3_lmngq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38256, 0, 0)
