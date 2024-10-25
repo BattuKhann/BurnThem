@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbfmrbnn3jncl"]
+
+[ext_resource type="Script" path="res://Scripts/Grave.cs" id="1_6hgjx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qhug"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hdgjm"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_sbfmm"]
+albedo_color = Color(0.31, 0.197625, 0.0775, 1)
+
+[node name="Grave" type="StaticBody3D"]
+script = ExtResource("1_6hgjx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7qhug")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hdgjm")
+surface_material_override/0 = SubResource("ORMMaterial3D_sbfmm")
