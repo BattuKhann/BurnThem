@@ -1,22 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbfmrbnn3jncl"]
+[gd_scene load_steps=8 format=3 uid="uid://dbfmrbnn3jncl"]
 
 [ext_resource type="Script" path="res://Scripts/Grave.cs" id="1_6hgjx"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7qhug"]
-size = Vector3(1, 0.2, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_pxufp"]
+size = Vector3(2, 0.2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hdgjm"]
-size = Vector3(1, 0.2, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44yug"]
+albedo_color = Color(0.172549, 0.0823529, 0.0117647, 1)
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_sbfmm"]
-albedo_color = Color(0.31, 0.197625, 0.0775, 1)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rrdm4"]
+data = PackedVector3Array(-1, 0.1, 0.5, 1, 0.1, 0.5, -1, -0.1, 0.5, 1, 0.1, 0.5, 1, -0.1, 0.5, -1, -0.1, 0.5, 1, 0.1, -0.5, -1, 0.1, -0.5, 1, -0.1, -0.5, -1, 0.1, -0.5, -1, -0.1, -0.5, 1, -0.1, -0.5, 1, 0.1, 0.5, 1, 0.1, -0.5, 1, -0.1, 0.5, 1, 0.1, -0.5, 1, -0.1, -0.5, 1, -0.1, 0.5, -1, 0.1, -0.5, -1, 0.1, 0.5, -1, -0.1, -0.5, -1, 0.1, 0.5, -1, -0.1, 0.5, -1, -0.1, -0.5, 1, 0.1, 0.5, -1, 0.1, 0.5, 1, 0.1, -0.5, -1, 0.1, 0.5, -1, 0.1, -0.5, 1, 0.1, -0.5, -1, -0.1, 0.5, 1, -0.1, 0.5, -1, -0.1, -0.5, 1, -0.1, 0.5, 1, -0.1, -0.5, -1, -0.1, -0.5)
 
-[node name="Grave" type="StaticBody3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_fu4ua"]
+size = Vector3(0.2, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sy0l"]
+albedo_color = Color(0.533333, 0.54902, 0.552941, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xylnp"]
+data = PackedVector3Array(-0.1, 0.5, 0.5, 0.1, 0.5, 0.5, -0.1, -0.5, 0.5, 0.1, 0.5, 0.5, 0.1, -0.5, 0.5, -0.1, -0.5, 0.5, 0.1, 0.5, -0.5, -0.1, 0.5, -0.5, 0.1, -0.5, -0.5, -0.1, 0.5, -0.5, -0.1, -0.5, -0.5, 0.1, -0.5, -0.5, 0.1, 0.5, 0.5, 0.1, 0.5, -0.5, 0.1, -0.5, 0.5, 0.1, 0.5, -0.5, 0.1, -0.5, -0.5, 0.1, -0.5, 0.5, -0.1, 0.5, -0.5, -0.1, 0.5, 0.5, -0.1, -0.5, -0.5, -0.1, 0.5, 0.5, -0.1, -0.5, 0.5, -0.1, -0.5, -0.5, 0.1, 0.5, 0.5, -0.1, 0.5, 0.5, 0.1, 0.5, -0.5, -0.1, 0.5, 0.5, -0.1, 0.5, -0.5, 0.1, 0.5, -0.5, -0.1, -0.5, 0.5, 0.1, -0.5, 0.5, -0.1, -0.5, -0.5, 0.1, -0.5, 0.5, 0.1, -0.5, -0.5, -0.1, -0.5, -0.5)
+
+[node name="Grave" type="Node3D"]
 script = ExtResource("1_6hgjx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_7qhug")
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_pxufp")
+surface_material_override/0 = SubResource("StandardMaterial3D_44yug")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_hdgjm")
-surface_material_override/0 = SubResource("ORMMaterial3D_sbfmm")
+[node name="StaticBody3D" type="StaticBody3D" parent="Body"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rrdm4")
+
+[node name="Stone" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0.5, 0)
+mesh = SubResource("BoxMesh_fu4ua")
+surface_material_override/0 = SubResource("StandardMaterial3D_6sy0l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stone"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stone/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xylnp")
+
+[node name="Label3D" type="Label3D" parent="Stone"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.101, 0, 0)
+pixel_size = 0.01
+text = "16"

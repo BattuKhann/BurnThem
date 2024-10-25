@@ -1,15 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://diqlbkuyslp0o"]
+[gd_scene load_steps=9 format=3 uid="uid://bc5nxx47hfjs1"]
 
 [ext_resource type="PackedScene" uid="uid://6xxjggmgqrht" path="res://Scenes/Ghost.tscn" id="1_frf6x"]
 [ext_resource type="PackedScene" uid="uid://dbfmrbnn3jncl" path="res://Scenes/Grave.tscn" id="2_qab4j"]
 [ext_resource type="PackedScene" uid="uid://bg4rnvvhy5kx2" path="res://Scenes/Player.tscn" id="3_lmngq"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lu0k7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_eg0lv"]
+sky_material = SubResource("ProceduralSkyMaterial_lu0k7")
+
+[sub_resource type="Environment" id="Environment_qfbal"]
+background_mode = 2
+sky = SubResource("Sky_eg0lv")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gdpmm"]
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j6mv5"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
 [node name="Scene2" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qfbal")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_gdpmm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_j6mv5")
+
 [node name="Ghost" parent="." instance=ExtResource("1_frf6x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91007, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91007, 1.20676, 0)
 
 [node name="Grave" parent="." instance=ExtResource("2_qab4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_lmngq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38256, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38256, 1.32243, 0)

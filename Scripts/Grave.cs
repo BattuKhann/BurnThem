@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Grave : StaticBody3D
+public partial class Grave : Node3D
 {
 
 	private PackedScene ghost;
@@ -23,14 +23,14 @@ public partial class Grave : StaticBody3D
 	}
 
 	public void SpawnEnemy(Vector3 position)
-    {
-        // Instance the enemy
-        RigidBody3D enemy = (RigidBody3D) ghost.Instantiate();
+	{
+		// Instance the enemy
+		RigidBody3D enemy = (RigidBody3D) ghost.Instantiate();
 
-        // Set the position of the enemy
-        enemy.GlobalTransform = new Transform3D(Basis.Identity, position);
+		// Set the position of the enemy
+		enemy.GlobalTransform = new Transform3D(Basis.Identity, position);
 
-        // Add the enemy to the current scene
-        AddChild(enemy);
-    }
+		// Add the enemy to the current scene
+		AddChild(enemy);
+	}
 }

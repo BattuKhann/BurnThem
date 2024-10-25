@@ -25,9 +25,13 @@ mesh = SubResource("SphereMesh_s583s")
 surface_material_override/0 = SubResource("StandardMaterial3D_x2g78")
 
 [node name="VirtCam" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.117143)
 
 [node name="SubViewport" type="SubViewport" parent="VirtCam"]
 size = Vector2i(50, 50)
 
 [node name="Camera3D" type="Camera3D" parent="VirtCam/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.103375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.117143)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="VirtCam"]
+remote_path = NodePath("../SubViewport/Camera3D")
