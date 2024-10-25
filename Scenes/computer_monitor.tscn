@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce4fr1xui2pvy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nck3r"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fby8s"]
+viewport_path = NodePath("CameraView1/SubViewport")
+
+[node name="Computer Monitor" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nck3r")
+
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.055)
+texture = SubResource("ViewportTexture_fby8s")

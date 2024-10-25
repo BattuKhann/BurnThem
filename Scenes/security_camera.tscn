@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd3xruu16kyk3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iif8c"]
+size = Vector3(0.1, 0.1, 0.25)
+
+[sub_resource type="SphereMesh" id="SphereMesh_s583s"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2g78"]
+albedo_color = Color(0.144063, 0.144063, 0.144063, 1)
+
+[node name="SecurityCamera" type="Node3D"]
+
+[node name="PhysicalCam" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="PhysicalCam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00032258, 0.00123167, -0.000590444)
+mesh = SubResource("BoxMesh_iif8c")
+skeleton = NodePath("../..")
+
+[node name="Eye" type="MeshInstance3D" parent="PhysicalCam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.130671)
+mesh = SubResource("SphereMesh_s583s")
+surface_material_override/0 = SubResource("StandardMaterial3D_x2g78")
+
+[node name="VirtCam" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="VirtCam"]
+size = Vector2i(50, 50)
+
+[node name="Camera3D" type="Camera3D" parent="VirtCam/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.103375)
