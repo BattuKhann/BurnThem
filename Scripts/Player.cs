@@ -6,6 +6,9 @@ public partial class Player : RigidBody3D
 	float mouse_sensitivity = 0.005f;
 	float twist_input = 0.00f;
 	float pitch_input = 0.00f;
+	float test_poo = 1;
+
+	// test comment
 
 	private Node3D _twistPivot;
 	private Node3D _pitchPivot;
