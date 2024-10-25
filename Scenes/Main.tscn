@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3788ku7cmo88"]
+[gd_scene load_steps=19 format=3 uid="uid://c3788ku7cmo88"]
 
 [ext_resource type="PackedScene" uid="uid://bg4rnvvhy5kx2" path="res://Scenes/Player.tscn" id="1_uvyw7"]
 [ext_resource type="PackedScene" uid="uid://ce4fr1xui2pvy" path="res://Scenes/computer_monitor.tscn" id="2_mqxrl"]
 [ext_resource type="PackedScene" uid="uid://bd3xruu16kyk3" path="res://Scenes/security_camera.tscn" id="3_u1pyp"]
 [ext_resource type="PackedScene" uid="uid://6xxjggmgqrht" path="res://Scenes/Ghost.tscn" id="2_6dgul"]
+[ext_resource type="PackedScene" uid="uid://dbfmrbnn3jncl" path="res://Scenes/Grave.tscn" id="3_2gj23"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fdy42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -68,3 +69,15 @@ shape = SubResource("ConcavePolygonShape3D_q8cya")
 [node name="Player" parent="." instance=ExtResource("1_7rspr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
 linear_damp = 3.0
+
+[node name="Ghost" parent="." groups=["ghost"] instance=ExtResource("2_6dgul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 7)
+
+[node name="Ghost2" parent="." groups=["ghost"] instance=ExtResource("2_6dgul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5576, 2.92392, 2.97549)
+
+[node name="Ghost3" parent="." groups=["ghost"] instance=ExtResource("2_6dgul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40315, 2.71802, 6.46355)
+
+[node name="Grave" parent="." instance=ExtResource("3_2gj23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -5.06937)
