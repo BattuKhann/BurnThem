@@ -1,10 +1,14 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class Ghost : CharacterBody3D
 {
 	private const float Speed = 2.0f;
 	private const float accel = 10f;
+	
+	[Export]
+	public bool frozen = false;
 
 	// init navigation agent
 	private NavigationAgent3D navAgent;
@@ -37,6 +41,17 @@ public partial class Ghost : CharacterBody3D
 		dir = dir.Normalized();
 
 		Velocity = Velocity.Lerp(dir * Speed, (float)(accel * delta));
-		MoveAndSlide();
+
+		if (!frozen) {
+			MoveAndSlide();
+		}
+	}
+
+	public void Freeze() {
+		frozen = true;
+	}
+
+	public void UnFreeze() {
+		frozen = false;
 	}
 }
