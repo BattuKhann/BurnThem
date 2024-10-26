@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv0hgxim7cu4b"]
+[gd_scene load_steps=10 format=3 uid="uid://cv0hgxim7cu4b"]
+
+[ext_resource type="Script" path="res://Scripts/Door.cs" id="1_vioir"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fu1to"]
 
@@ -9,12 +11,68 @@ material = SubResource("StandardMaterial3D_fu1to")
 
 [sub_resource type="BoxMesh" id="BoxMesh_6j60i"]
 
+[sub_resource type="Animation" id="Animation_ouoxd"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_32x3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yfi1h"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvw01"]
+_data = {
+"RESET": SubResource("Animation_32x3o"),
+"close": SubResource("Animation_yfi1h"),
+"open": SubResource("Animation_ouoxd")
+}
+
 [node name="Door" type="Node3D"]
 
 [node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
 
-[node name="Body" type="StaticBody3D" parent="Hinge"]
-transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 0.25, 0, 0, 0)
+[node name="Body" type="StaticBody3D" parent="Hinge" node_paths=PackedStringArray("animationPlayer")]
+transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 0.25, -1.5, 0, 0)
+collision_layer = 3
+script = ExtResource("1_vioir")
+animationPlayer = NodePath("../../AnimationPlayer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/Body"]
 mesh = SubResource("BoxMesh_lp5ly")
@@ -25,3 +83,8 @@ shape = SubResource("BoxShape3D_s73dx")
 [node name="Handle" type="MeshInstance3D" parent="Hinge/Body"]
 transform = Transform3D(0.05, 0, 0, 0, 0.2, 0, 0, 0, 3, -0.333967, 0.00219268, -0.0123482)
 mesh = SubResource("BoxMesh_6j60i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lvw01")
+}
