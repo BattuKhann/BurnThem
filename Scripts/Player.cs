@@ -137,7 +137,7 @@ public partial class Player : CharacterBody3D
 
 					var space = GetWorld3D().DirectSpaceState;
 					var query = PhysicsRayQueryParameters3D.Create(GlobalTransform.Origin, ghost.GlobalTransform.Origin);
-    				Dictionary result = space.IntersectRay(query);
+					Dictionary result = space.IntersectRay(query);
 
 					if (result.Count > 0) // Check if the ray hit something
 					{
