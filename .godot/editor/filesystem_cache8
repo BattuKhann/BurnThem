@@ -3,7 +3,7 @@ ea4bc82a6ad023ab7ee23ee620429895
 icon.svg::CompressedTexture2D::7661252752719481718::1729807483::1729807765::1::::<><>::
 README.md::TextFile::-1::1729812781::0::1::::<><>::
 ::res://Assets/::1729904737
-::res://Assets/Blend/::1729969047
+::res://Assets/Blend/::1729969156
 BrickNormalMap.jpg::CompressedTexture2D::3935768671565462519::1729904735::1729904858::1::::<><>::
 ChurchBrick.jpg::CompressedTexture2D::5929422972969753682::1729904735::1729904857::1::::<><>::
 DarkStone.jpg::CompressedTexture2D::9213522883331503141::1729904735::1729904860::1::::<><>::
@@ -18,18 +18,18 @@ scene.gltf::PackedScene::5081117203910154208::1729904737::1729904877::1::::<><>:
 Material_baseColor.png::CompressedTexture2D::213578543540916828::1729904737::1729904855::1::::<><>::
 Material_metallicRoughness.png::CompressedTexture2D::6399821106700879594::1729904737::1729904856::1::::<><>::
 Material_normal.png::CompressedTexture2D::1992045261062815085::1729904737::1729904855::1::::<><>::
-::res://Scenes/::1729969047
+::res://Scenes/::1729969946
 computer_monitor.tscn::PackedScene::5113799042324364470::1729820583::0::1::::<><>::
 Door.tscn::PackedScene::6298853482332750395::1729969047::0::1::::<><>::
-Ghost.tscn::PackedScene::2224747729063970725::1729904980::0::1::::<><>::res://Scripts/Ghost.cs
-Grave.tscn::PackedScene::7240531819131469547::1729904980::0::1::::<><>::res://Scripts/Grave.cs
+Ghost.tscn::PackedScene::2224747729063970725::1729969964::0::1::::<><>::res://Scripts/Ghost.cs
+Grave.tscn::PackedScene::7240531819131469547::1729969510::0::1::::<><>::res://Scripts/Grave.cs
 Player(OLD).tscn::PackedScene::2868477240369379681::1729969047::0::1::::<><>::res://Scripts/Player_OLD.cs
-Player.tscn::PackedScene::4882919066672570416::1729969047::0::1::::<><>::res://Scripts/Player.cs
+Player.tscn::PackedScene::4882919066672570416::1729969510::0::1::::<><>::res://Scripts/Player.cs
 Scene1.tscn::PackedScene::6806252226927861563::1729969047::0::1::::<><>::uid://ce4fr1xui2pvy::::res://Scenes/computer_monitor.tscn<>uid://bd3xruu16kyk3::::res://Scenes/security_camera.tscn<>uid://emo0xwptkrwi::::res://Assets/Blend/Parish Church Model+.blend<>uid://dbfmrbnn3jncl::::res://Scenes/Grave.tscn
-Scene2.tscn::PackedScene::2589561352056612602::1729969047::0::1::::<><>::uid://6xxjggmgqrht::::res://Scenes/Ghost.tscn<>uid://dbfmrbnn3jncl::::res://Scenes/Grave.tscn<>uid://cbtk707kmrwcm::::res://Scenes/Player.tscn<>uid://cenli1h7q8yyi::::res://Assets/not_a_flamethrower_-_boring_company/scene.gltf
+Scene2.tscn::PackedScene::2589561352056612602::1729969908::0::1::::<><>::uid://6xxjggmgqrht::::res://Scenes/Ghost.tscn<>uid://dbfmrbnn3jncl::::res://Scenes/Grave.tscn<>uid://cbtk707kmrwcm::::res://Scenes/Player.tscn<>uid://cenli1h7q8yyi::::res://Assets/not_a_flamethrower_-_boring_company/scene.gltf
 security_camera.tscn::PackedScene::2656217723637143632::1729904737::0::1::::<><>::
 ::res://Scripts/::1729969047
-Ghost.cs::CSharpScript::-1::1729969047::0::1::::<>RigidBody3D<>::
+Ghost.cs::CSharpScript::-1::1729969956::0::1::::<>RigidBody3D<>::
 Grave.cs::CSharpScript::-1::1729904737::0::1::::<>Node3D<>::
-Player.cs::CSharpScript::-1::1729969047::0::1::::<>RigidBody3D<>::
-Player_OLD.cs::CSharpScript::-1::1729969047::0::1::::<><>::
+Player.cs::CSharpScript::-1::1729969577::0::1::::<>CharacterBody3D<>::
+Player_OLD.cs::CSharpScript::-1::1729969047::0::1::::<>RigidBody3D<>::
