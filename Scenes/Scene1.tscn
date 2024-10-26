@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://emo0xwptkrwi" path="res://Assets/Blend/Parish Church Model+.blend" id="4_1km3x"]
 [ext_resource type="PackedScene" uid="uid://dbfmrbnn3jncl" path="res://Scenes/Grave.tscn" id="5_haj6m"]
 
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fdy42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

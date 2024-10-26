@@ -40,13 +40,13 @@ mesh = SubResource("PlaneMesh_gdpmm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_j6mv5")
 
-[node name="Ghost" parent="." instance=ExtResource("1_frf6x")]
+[node name="Ghost" parent="." groups=["ghost"] instance=ExtResource("1_frf6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91007, 1.20676, 0)
 
 [node name="Grave" parent="." instance=ExtResource("2_qab4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0)
 
-[node name="Player" parent="." instance=ExtResource("3_lmngq")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_lmngq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38256, 1.32243, 0)
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("4_k8bfg")]
