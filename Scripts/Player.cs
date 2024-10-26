@@ -1,5 +1,7 @@
 using Godot;
+using Godot.Collections;
 using System;
+using System.Collections;
 
 public partial class Player : CharacterBody3D
 {
@@ -10,6 +12,10 @@ public partial class Player : CharacterBody3D
 
 	private Node3D head;
 	private Camera3D camera;
+	private Area3D losObject;
+	private Timer losTimer;
+
+	private Array<Ghost> ghosts;
 
 	private float mouse_sensitivity = 0.03f;
 	private float twist_input;
@@ -22,9 +28,23 @@ public partial class Player : CharacterBody3D
 
 	public override void _Ready()
 	{
+		Array<Node> nodesInGroup = GetTree().GetNodesInGroup("ghost");
+		ghosts = new Array<Ghost>();
+
+		foreach (Node node in nodesInGroup)
+		{
+			if (node is Ghost ghost)
+			{
+				ghosts.Add(ghost);
+			}
+		}
+
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		head = GetNode<Node3D>("Head");
 		camera = head.GetNode<Camera3D>("PlayerCamera");
+
+		losObject = camera.GetNode<Area3D>("LineOfSightObject");
+		losTimer = GetNode<Timer>("VisionTimer");
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -101,6 +121,40 @@ public partial class Player : CharacterBody3D
 			if(Input.MouseMode == Input.MouseModeEnum.Captured){
 				twist_input = - mouseMotion.Relative.X * mouse_sensitivity * 0.1f;
 				pitch_input = - mouseMotion.Relative.Y * mouse_sensitivity * 0.1f;
+			}
+		}
+	}
+
+	public void _on_vision_timer_Timeout() {
+		var overlaps = losObject.GetOverlappingBodies();
+		var frozenGhosts = new Array<Ghost>();
+
+		// check ghosts in collision sight
+		if (overlaps.Count > 0) {
+			for (int i = 0; i < overlaps.Count; i++) {
+				if (overlaps[i].IsInGroup("ghost")) {
+					Ghost ghost = (Ghost) overlaps[i];
+
+					var space = GetWorld3D().DirectSpaceState;
+					var query = PhysicsRayQueryParameters3D.Create(GlobalTransform.Origin, ghost.GlobalTransform.Origin);
+    				Dictionary result = space.IntersectRay(query);
+
+					if (result.Count > 0) // Check if the ray hit something
+					{
+						var collider = (Node) result["collider"]; // Cast the collider to a Node
+						if (collider != null && collider.IsInGroup("ghost"))
+						{
+							ghost.Freeze();
+							frozenGhosts.Add(ghost);
+						}
+					}
+				}
+			}
+		}
+
+		foreach (Ghost g in ghosts) {
+			if (!frozenGhosts.Contains(g)) {
+				g.UnFreeze();
 			}
 		}
 	}
