@@ -99,8 +99,8 @@ public partial class Player : CharacterBody3D
 	{
 		if(@event is InputEventMouseMotion mouseMotion){
 			if(Input.MouseMode == Input.MouseModeEnum.Captured){
-				twist_input = - mouseMotion.Relative.X * mouse_sensitivity;
-				pitch_input = - mouseMotion.Relative.Y * mouse_sensitivity;
+				twist_input = - mouseMotion.Relative.X * mouse_sensitivity * 0.1f;
+				pitch_input = - mouseMotion.Relative.Y * mouse_sensitivity * 0.1f;
 			}
 		}
 	}
