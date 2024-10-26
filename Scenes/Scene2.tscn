@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://6xxjggmgqrht" path="res://Scenes/Ghost.tscn" id="1_frf6x"]
 [ext_resource type="PackedScene" uid="uid://dbfmrbnn3jncl" path="res://Scenes/Grave.tscn" id="2_qab4j"]
-[ext_resource type="PackedScene" uid="uid://bg4rnvvhy5kx2" path="res://Scenes/Player.tscn" id="3_lmngq"]
+[ext_resource type="PackedScene" uid="uid://cbtk707kmrwcm" path="res://Scenes/Player.tscn" id="3_lmngq"]
 [ext_resource type="PackedScene" uid="uid://cenli1h7q8yyi" path="res://Assets/not_a_flamethrower_-_boring_company/scene.gltf" id="4_k8bfg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lu0k7"]
@@ -46,8 +46,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91007, 1.20676, 0)
 [node name="Grave" parent="." instance=ExtResource("2_qab4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0)
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("3_lmngq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38256, 1.32243, 0)
-
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("4_k8bfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0193512, 1.73433, 3.81036)
+
+[node name="Player" parent="." instance=ExtResource("3_lmngq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36392, 1.80531, 0)

@@ -1,11 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3788ku7cmo88"]
+[gd_scene load_steps=28 format=3 uid="uid://c3788ku7cmo88"]
 
-[ext_resource type="PackedScene" uid="uid://bg4rnvvhy5kx2" path="res://Scenes/Player.tscn" id="1_1pahq"]
 [ext_resource type="PackedScene" uid="uid://ce4fr1xui2pvy" path="res://Scenes/computer_monitor.tscn" id="2_iiopc"]
 [ext_resource type="PackedScene" uid="uid://bd3xruu16kyk3" path="res://Scenes/security_camera.tscn" id="3_t0yfv"]
 [ext_resource type="PackedScene" uid="uid://emo0xwptkrwi" path="res://Assets/Blend/Parish Church Model+.blend" id="4_1km3x"]
 [ext_resource type="PackedScene" uid="uid://dbfmrbnn3jncl" path="res://Scenes/Grave.tscn" id="5_haj6m"]
-
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fdy42"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,26 +18,46 @@ sky = SubResource("Sky_8tqhj")
 tonemap_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7hn15"]
-size = Vector2(100, 100)
+size = Vector2(200, 200)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ml672"]
-data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d5tta"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjqc4"]
 albedo_color = Color(0.443137, 0.47451, 0.494118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pilxg"]
+material = SubResource("StandardMaterial3D_hjqc4")
+size = Vector3(20, 5, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_even4"]
+data = PackedVector3Array(-5, 2.5, 0.5, 5, 2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, -0.5, 5, -2.5, -0.5, -5, 2.5, -0.5, -5, -2.5, -0.5, 5, -2.5, -0.5, 5, 2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, -0.5, 5, -2.5, 0.5, -5, 2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, 0.5, -5, -2.5, -0.5, 5, 2.5, 0.5, -5, 2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, 0.5, -5, 2.5, -0.5, 5, 2.5, -0.5, -5, -2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, -0.5, 5, -2.5, 0.5, 5, -2.5, -0.5, -5, -2.5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_viw8b"]
 material = SubResource("StandardMaterial3D_hjqc4")
 size = Vector3(10, 5, 1)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cv1tn"]
+data = PackedVector3Array(-5, 2.5, 0.5, 5, 2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, -0.5, 5, -2.5, -0.5, -5, 2.5, -0.5, -5, -2.5, -0.5, 5, -2.5, -0.5, 5, 2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, -0.5, 5, -2.5, 0.5, -5, 2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, 0.5, -5, -2.5, -0.5, 5, 2.5, 0.5, -5, 2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, 0.5, -5, 2.5, -0.5, 5, 2.5, -0.5, -5, -2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, -0.5, 5, -2.5, 0.5, 5, -2.5, -0.5, -5, -2.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aqflj"]
+material = SubResource("StandardMaterial3D_hjqc4")
+size = Vector3(5, 5, 1)
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mckju"]
 data = PackedVector3Array(-5, 2.5, 0.5, 5, 2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, -0.5, 5, -2.5, -0.5, -5, 2.5, -0.5, -5, -2.5, -0.5, 5, -2.5, -0.5, 5, 2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, -0.5, 5, -2.5, 0.5, -5, 2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, 0.5, -5, -2.5, -0.5, 5, 2.5, 0.5, -5, 2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, 0.5, -5, 2.5, -0.5, 5, 2.5, -0.5, -5, -2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, -0.5, 5, -2.5, 0.5, 5, -2.5, -0.5, -5, -2.5, -0.5)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_even4"]
-data = PackedVector3Array(-5, 2.5, 0.5, 5, 2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, -0.5, 5, -2.5, -0.5, -5, 2.5, -0.5, -5, -2.5, -0.5, 5, -2.5, -0.5, 5, 2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, -0.5, 5, -2.5, 0.5, -5, 2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, 0.5, -5, -2.5, -0.5, 5, 2.5, 0.5, -5, 2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, 0.5, -5, 2.5, -0.5, 5, 2.5, -0.5, -5, -2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, -0.5, 5, -2.5, 0.5, 5, -2.5, -0.5, -5, -2.5, -0.5)
+[sub_resource type="BoxMesh" id="BoxMesh_6ab40"]
+material = SubResource("StandardMaterial3D_hjqc4")
+size = Vector3(5, 1, 0.5)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cv1tn"]
-data = PackedVector3Array(-5, 2.5, 0.5, 5, 2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, -0.5, 5, -2.5, -0.5, -5, 2.5, -0.5, -5, -2.5, -0.5, 5, -2.5, -0.5, 5, 2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, -0.5, 5, -2.5, 0.5, -5, 2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, 0.5, -5, -2.5, -0.5, 5, 2.5, 0.5, -5, 2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, 0.5, -5, 2.5, -0.5, 5, 2.5, -0.5, -5, -2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, -0.5, 5, -2.5, 0.5, 5, -2.5, -0.5, -5, -2.5, -0.5)
+[sub_resource type="BoxMesh" id="BoxMesh_45w6b"]
+material = SubResource("StandardMaterial3D_hjqc4")
+size = Vector3(4, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2u1ls"]
+material = SubResource("StandardMaterial3D_hjqc4")
+size = Vector3(20, 5, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qoukb"]
 data = PackedVector3Array(-5, 2.5, 0.5, 5, 2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, -0.5, 5, -2.5, -0.5, -5, 2.5, -0.5, -5, -2.5, -0.5, 5, -2.5, -0.5, 5, 2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, 0.5, 5, 2.5, -0.5, 5, -2.5, -0.5, 5, -2.5, 0.5, -5, 2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, -0.5, -5, 2.5, 0.5, -5, -2.5, 0.5, -5, -2.5, -0.5, 5, 2.5, 0.5, -5, 2.5, 0.5, 5, 2.5, -0.5, -5, 2.5, 0.5, -5, 2.5, -0.5, 5, 2.5, -0.5, -5, -2.5, 0.5, 5, -2.5, 0.5, -5, -2.5, -0.5, 5, -2.5, 0.5, 5, -2.5, -0.5, -5, -2.5, -0.5)
@@ -49,13 +67,24 @@ albedo_color = Color(0.443137, 0.47451, 0.494118, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ucfi"]
 material = SubResource("StandardMaterial3D_s8lu1")
-size = Vector3(12, 10, 1)
+size = Vector3(12, 20, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hrkvs"]
 data = PackedVector3Array(-5, 5, 0.5, 5, 5, 0.5, -5, -5, 0.5, 5, 5, 0.5, 5, -5, 0.5, -5, -5, 0.5, 5, 5, -0.5, -5, 5, -0.5, 5, -5, -0.5, -5, 5, -0.5, -5, -5, -0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5, 5, -5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, -5, 0.5, -5, 5, -0.5, -5, 5, 0.5, -5, -5, -0.5, -5, 5, 0.5, -5, -5, 0.5, -5, -5, -0.5, 5, 5, 0.5, -5, 5, 0.5, 5, 5, -0.5, -5, 5, 0.5, -5, 5, -0.5, 5, 5, -0.5, -5, -5, 0.5, 5, -5, 0.5, -5, -5, -0.5, 5, -5, 0.5, 5, -5, -0.5, -5, -5, -0.5)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_apaul"]
 viewport_path = NodePath("VirtCam/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxgdu"]
+albedo_color = Color(0.273873, 0.273873, 0.273873, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_14vo8"]
+material = SubResource("StandardMaterial3D_oxgdu")
+size = Vector3(15, 0.1, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hud3p"]
+material = SubResource("StandardMaterial3D_oxgdu")
+size = Vector3(60, 0.1, 60)
 
 [node name="Scene1" type="Node3D"]
 
@@ -67,55 +96,66 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 visible = false
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.289505, 7.62939e-06, 0.0296402)
 mesh = SubResource("PlaneMesh_7hn15")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ml672")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d5tta")
 
 [node name="SecurityRoom" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 1.062)
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -13.4493, 0, 1.062)
 
-[node name="Wall1" type="MeshInstance3D" parent="SecurityRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -4.5)
-mesh = SubResource("BoxMesh_viw8b")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="SecurityRoom/Wall1"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/Wall1/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_mckju")
-
-[node name="Wall2" type="MeshInstance3D" parent="SecurityRoom"]
+[node name="WallN" type="MeshInstance3D" parent="SecurityRoom"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.5, 2.5, 0)
-mesh = SubResource("BoxMesh_viw8b")
+mesh = SubResource("BoxMesh_pilxg")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SecurityRoom/Wall2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SecurityRoom/WallN"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/Wall2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/WallN/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_even4")
 
-[node name="Wall3" type="MeshInstance3D" parent="SecurityRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 4.5)
+[node name="WallE" type="MeshInstance3D" parent="SecurityRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 9.5)
 mesh = SubResource("BoxMesh_viw8b")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SecurityRoom/Wall3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SecurityRoom/WallE"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/Wall3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/WallE/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cv1tn")
 
-[node name="Wall4" type="MeshInstance3D" parent="SecurityRoom"]
+[node name="WallW" type="Node3D" parent="SecurityRoom"]
+
+[node name="Wall1" type="MeshInstance3D" parent="SecurityRoom/WallW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -9.5)
+mesh = SubResource("BoxMesh_aqflj")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="SecurityRoom/WallW/Wall1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/WallW/Wall1/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_mckju")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SecurityRoom/WallW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 4.5, -9.75)
+mesh = SubResource("BoxMesh_6ab40")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SecurityRoom/WallW"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4, 2, -9.5)
+mesh = SubResource("BoxMesh_45w6b")
+
+[node name="WallS" type="MeshInstance3D" parent="SecurityRoom"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.5, 2.5, 0)
-mesh = SubResource("BoxMesh_viw8b")
+mesh = SubResource("BoxMesh_2u1ls")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SecurityRoom/Wall4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SecurityRoom/WallS"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/Wall4/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/WallS/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qoukb")
 
 [node name="Ceiling" type="MeshInstance3D" parent="SecurityRoom"]
@@ -127,9 +167,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SecurityRoom/Ceiling/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_hrkvs")
-
-[node name="Player2" parent="." instance=ExtResource("1_1pahq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.737, 1.99002, 25.9987)
 
 [node name="Computer Monitor" parent="." instance=ExtResource("2_iiopc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.10875, 3.50202, 0)
@@ -147,18 +184,166 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26212, 2.96818, 9.08319)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26212, 2.96818, 8.96605)
 
 [node name="Parish Church Model+" parent="." instance=ExtResource("4_1km3x")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -45, 0, -33.464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 24)
 
 [node name="Sun_001" parent="Parish Church Model+" index="13"]
 visible = false
 
-[node name="Graves" type="Node3D" parent="."]
+[node name="Front Yard" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 38.3557)
 
-[node name="Grave" parent="Graves" instance=ExtResource("5_haj6m")]
+[node name="Grave" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 43)
 
-[node name="Grave2" parent="Graves" instance=ExtResource("5_haj6m")]
+[node name="Grave2" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 41)
 
-[node name="Grave3" parent="Graves" instance=ExtResource("5_haj6m")]
+[node name="Grave3" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 39)
+
+[node name="Grave4" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 43)
+
+[node name="Grave5" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 41)
+
+[node name="Grave6" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 39)
+
+[node name="Grave7" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 43)
+
+[node name="Grave8" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 41)
+
+[node name="Grave9" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 39)
+
+[node name="Grave10" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 43)
+
+[node name="Grave11" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 41)
+
+[node name="Grave12" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 39)
+
+[node name="Grave13" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 43)
+
+[node name="Grave14" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 41)
+
+[node name="Grave15" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 39)
+
+[node name="Grave16" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 43)
+
+[node name="Grave17" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 41)
+
+[node name="Grave18" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 39)
+
+[node name="Grave19" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 43)
+
+[node name="Grave20" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 41)
+
+[node name="Grave21" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 39)
+
+[node name="Grave22" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 43)
+
+[node name="Grave23" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 41)
+
+[node name="Grave24" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 39)
+
+[node name="Grave25" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 37.0014)
+
+[node name="Grave26" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 35.0014)
+
+[node name="Grave27" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 33.0014)
+
+[node name="Grave28" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 37.0014)
+
+[node name="Grave29" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 35.0014)
+
+[node name="Grave30" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 33.0014)
+
+[node name="Grave31" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 37.0014)
+
+[node name="Grave32" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 35.0014)
+
+[node name="Grave33" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 33.0014)
+
+[node name="Grave34" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 37.0014)
+
+[node name="Grave35" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 35.0014)
+
+[node name="Grave36" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 33.0014)
+
+[node name="Grave37" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 37.0014)
+
+[node name="Grave38" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 35.0014)
+
+[node name="Grave39" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 33.0014)
+
+[node name="Grave40" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 37.0014)
+
+[node name="Grave41" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 35.0014)
+
+[node name="Grave42" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 33.0014)
+
+[node name="Grave43" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 37.0014)
+
+[node name="Grave44" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 35.0014)
+
+[node name="Grave45" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 33.0014)
+
+[node name="Grave46" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 37.0014)
+
+[node name="Grave47" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 35.0014)
+
+[node name="Grave48" parent="Front Yard" instance=ExtResource("5_haj6m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 33.0014)
+
+[node name="Road" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.3289, 0, 0)
+mesh = SubResource("BoxMesh_14vo8")
+
+[node name="Parking Lot" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, -53.46)
+mesh = SubResource("BoxMesh_hud3p")
+skeleton = NodePath("../Road")
 
 [editable path="Computer Monitor"]
 [editable path="SecurityCamera"]

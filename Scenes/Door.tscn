@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv0hgxim7cu4b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fu1to"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lp5ly"]
+material = SubResource("StandardMaterial3D_fu1to")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s73dx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6j60i"]
+
+[node name="Door" type="Node3D"]
+
+[node name="Hinge" type="Node3D" parent="."]
+
+[node name="Body" type="StaticBody3D" parent="Hinge"]
+transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/Body"]
+mesh = SubResource("BoxMesh_lp5ly")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/Body"]
+shape = SubResource("BoxShape3D_s73dx")
+
+[node name="Handle" type="MeshInstance3D" parent="Hinge/Body"]
+transform = Transform3D(0.05, 0, 0, 0, 0.2, 0, 0, 0, 3, -0.333967, 0.00219268, -0.0123482)
+mesh = SubResource("BoxMesh_6j60i")

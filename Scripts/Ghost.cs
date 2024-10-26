@@ -32,7 +32,7 @@ public partial class Ghost : RigidBody3D
 	public override void _Process(double delta)
 	{
 		if (player == null) {
-			GD.Print("player is null");
+			//GD.Print("player is null");
 			return;
 		}
 

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "+sBhiCRje60waMkvf/5lK8NMmqTRutM2NHgjupewkmR8qJwvn/z1GAZ6DSXJvVMOJ2VYZ7E2NUsPIvCz2gtunw==",
+  "success": true,
+  "projectFilePath": "/home/yusef/burnthem/BurnThem/Scripts/BurnThem.csproj",
+  "expectedPackageFiles": [
+    "/home/yusef/.nuget/packages/godot.sourcegenerators/4.3.0/godot.sourcegenerators.4.3.0.nupkg.sha512",
+    "/home/yusef/.nuget/packages/godotsharp/4.3.0/godotsharp.4.3.0.nupkg.sha512",
+    "/home/yusef/.nuget/packages/godotsharpeditor/4.3.0/godotsharpeditor.4.3.0.nupkg.sha512",
+    "/home/yusef/.nuget/packages/microsoft.netcore.app.ref/6.0.33/microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
+    "/home/yusef/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.33/microsoft.aspnetcore.app.ref.6.0.33.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnThem", "BurnThem.csproj", "{211E6F1C-AE16-4515-BFD3-CBDE32408150}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnThem", "BurnThem.csproj", "{E8C7E3AA-C83A-4F74-AF36-83CAA2EBF26B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{211E6F1C-AE16-4515-BFD3-CBDE32408150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{211E6F1C-AE16-4515-BFD3-CBDE32408150}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{211E6F1C-AE16-4515-BFD3-CBDE32408150}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{211E6F1C-AE16-4515-BFD3-CBDE32408150}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{211E6F1C-AE16-4515-BFD3-CBDE32408150}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{211E6F1C-AE16-4515-BFD3-CBDE32408150}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{E8C7E3AA-C83A-4F74-AF36-83CAA2EBF26B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C7E3AA-C83A-4F74-AF36-83CAA2EBF26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C7E3AA-C83A-4F74-AF36-83CAA2EBF26B}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{E8C7E3AA-C83A-4F74-AF36-83CAA2EBF26B}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{E8C7E3AA-C83A-4F74-AF36-83CAA2EBF26B}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{E8C7E3AA-C83A-4F74-AF36-83CAA2EBF26B}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal
