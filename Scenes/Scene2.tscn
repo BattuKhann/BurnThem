@@ -49,5 +49,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0)
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("4_k8bfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0193512, 1.73433, 3.81036)
 
-[node name="Player" parent="." instance=ExtResource("3_lmngq")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_lmngq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36392, 1.80531, 0)
