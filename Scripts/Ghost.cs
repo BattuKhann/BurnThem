@@ -55,7 +55,7 @@ public partial class Ghost : RigidBody3D
 		// Scale speed based on distance to avoid abrupt stopping
 		float adjustedSpeed = Mathf.Lerp(0, speed, Mathf.Min(distanceToPlayer / 3, 1));
 
-/*
+/*z`
 		Vector3 separationForce = Vector3.Zero;
 
 		// Check for nearby enemies to avoid collisions
