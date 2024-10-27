@@ -5,6 +5,8 @@ public partial class Door : StaticBody3D, Interactable
 {
 	bool open = false;
 	bool interactable = true;
+
+	public String interactType = "open";
 	[Export] AnimationPlayer animationPlayer;
 
 	public override void _Ready()
@@ -33,5 +35,9 @@ public partial class Door : StaticBody3D, Interactable
 
 			timer.QueueFree();
 		}
+	}
+
+	public String getInteractType(){
+		return open ? "Close" : "Open";
 	}
 }

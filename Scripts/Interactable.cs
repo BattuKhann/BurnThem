@@ -1,4 +1,7 @@
+using System;
+
 public interface Interactable
 {
-    void interact();
+    public void interact();
+    public String getInteractType();
 }

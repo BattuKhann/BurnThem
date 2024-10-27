@@ -1,13 +1,14 @@
 using Godot;
 using System;
 
-public partial class Grave : Node3D
+public partial class Grave : Node3D, Interactable
 {
 
 	private PackedScene ghost;
-
-
-
+	public bool opened = false;
+	public bool burning = false;
+	public bool occupied = true;
+	public bool body = true;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -32,5 +33,21 @@ public partial class Grave : Node3D
 
 		// Add the enemy to the current scene
 		AddChild(enemy);
+	}
+
+	public void KillEnemy(){
+		ghost.Free();
+	}
+
+	public void interact(){
+		
+	}
+
+	public String getInteractType(){
+		if(opened && body){
+			return "Burn";
+		} else {
+			return "Dig";
+		}
 	}
 }

@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bucjq38yphm18"]
+
+[ext_resource type="Script" path="res://Scripts/PopUp.cs" id="1_86i1i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r3gp4"]
+
+[node name="PopUp" type="Node3D"]
+script = ExtResource("1_86i1i")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Canvas"]
+offset_left = 1010.0
+offset_top = 448.0
+offset_right = 1055.0
+offset_bottom = 473.0
+mouse_filter = 2
+color = Color(0.252028, 0.252028, 0.252028, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Canvas/ColorRect"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 24.0
+text = "Open"
+label_settings = SubResource("LabelSettings_r3gp4")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Canvas"]
+offset_left = 1055.0
+offset_top = 448.0
+offset_right = 1077.0
+offset_bottom = 473.0
+color = Color(0.210683, 0.24879, 0.352891, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Canvas/ColorRect2"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 16.0
+offset_bottom = 24.0
+text = "E"
+label_settings = SubResource("LabelSettings_r3gp4")
+metadata/_edit_use_anchors_ = true
