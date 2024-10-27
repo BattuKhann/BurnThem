@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cbtk707kmrwcm"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_lwy1h"]
-[ext_resource type="PackedScene" uid="uid://7j5ahbmsrpjw" path="res://Scenes/ConeLOS.tscn" id="2_2icj0"]
+[ext_resource type="PackedScene" path="res://Scenes/ConeLOS.tscn" id="2_2icj0"]
 [ext_resource type="Script" path="res://Scripts/PlayerInteract.cs" id="2_ouisp"]
 [ext_resource type="PackedScene" uid="uid://bucjq38yphm18" path="res://Scenes/pop_up.tscn" id="3_g1xcj"]
 [ext_resource type="PackedScene" uid="uid://1iorcygcaoe7" path="res://Scenes/player_ui.tscn" id="5_6vqg2"]
