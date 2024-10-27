@@ -17,7 +17,7 @@ public partial class Player : CharacterBody3D
 	private Control PlayerUiObject;
 	private PlayerUi playerUi;
 
-	private Array<Ghost> ghosts;
+	private Array<Node> ghosts;
 
 	private float mouse_sensitivity = 0.03f;
 	private float twist_input;
@@ -36,7 +36,7 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		Array<Node> nodesInGroup = GetTree().GetNodesInGroup("ghost");
-		ghosts = new Array<Ghost>();
+		ghosts = new Array<Node>();
 
 		foreach (Node node in nodesInGroup)
 		{
@@ -151,8 +151,8 @@ public partial class Player : CharacterBody3D
 
 	public void _on_vision_timer_Timeout() {
 		var overlaps = losObject.GetOverlappingBodies();
-		Array<Ghost> frozenGhosts = new Array<Ghost>();
-
+		Array<Node> frozenGhosts = new Array<Node>();
+		ghosts = GetTree().GetNodesInGroup("ghost");
 
 		// check ghosts in collision sight
 		if (overlaps.Count > 0) {
@@ -170,17 +170,18 @@ public partial class Player : CharacterBody3D
 						if (collider != null && collider.IsInGroup("ghost"))
 						{
 							ghost.Freeze();
-							frozenGhosts.Add(ghost);
+							frozenGhosts.Add(overlaps[i]);
 						}
 					}
 				}
 			}
 		}
 
-		foreach (Ghost g in ghosts) {
-			if (!frozenGhosts.Contains(g)) {
-				g.UnFreeze();
+		for(int i = 0; i < ghosts.Count; i++){
+			if(!frozenGhosts.Contains(ghosts[i])){
+				//GD.Print("Hi1");
+				((Ghost)ghosts[i]).UnFreeze();
 			}
-		}
+		}	
 	}
 }

@@ -41,15 +41,16 @@ public partial class Grave : Node3D, Interactable
 		enemy.UnFreeze();
 
 		// Add the enemy to the current scene
-		//GetTree().Root.AddChild(enemy);
-		AddChild(enemy);
+		GetTree().Root.AddChild(enemy);
+		//AddChild(enemy);
 		enemy.AddToGroup("ghost");
+		//enemy._Ready();
 
-		/*if (enemy != null) {
+		if (enemy != null) {
 			enemy.UnFreeze();
 			enemy.RefreshPlayer();
 			GD.Print("ghost isnt null");
-		}*/
+		}
 
 		//AddChild(enemy);
 
