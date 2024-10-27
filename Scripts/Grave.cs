@@ -41,18 +41,19 @@ public partial class Grave : Node3D, Interactable
 		enemy.UnFreeze();
 
 		// Add the enemy to the current scene
-		GetTree().Root.AddChild(enemy);
+		//GetTree().Root.AddChild(enemy);
+		AddChild(enemy);
 		enemy.AddToGroup("ghost");
 
-		if (enemy != null) {
+		/*if (enemy != null) {
 			enemy.UnFreeze();
 			enemy.RefreshPlayer();
 			GD.Print("ghost isnt null");
-		}
+		}*/
 
-        //AddChild(enemy);
+		//AddChild(enemy);
 
-        var ghosts = GetTree().GetNodesInGroup("ghost");
+		var ghosts = GetTree().GetNodesInGroup("ghost");
 		foreach (CharacterBody3D ghost in ghosts)
 		{
 			// Perform action on each ghost
@@ -65,7 +66,7 @@ public partial class Grave : Node3D, Interactable
 		ghost.Free();
 	}
 
-	public void interact(){
+	public void interact(Camera3D playerCam){
 		
 	}
 

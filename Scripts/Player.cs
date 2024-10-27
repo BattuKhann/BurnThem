@@ -151,7 +151,7 @@ public partial class Player : CharacterBody3D
 
 	public void _on_vision_timer_Timeout() {
 		var overlaps = losObject.GetOverlappingBodies();
-		var frozenGhosts = new Array<Ghost>();
+		Array<Ghost> frozenGhosts = new Array<Ghost>();
 
 
 		// check ghosts in collision sight

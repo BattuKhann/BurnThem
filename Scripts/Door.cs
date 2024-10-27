@@ -13,7 +13,7 @@ public partial class Door : StaticBody3D, Interactable
 	{
 		//animationPlayer.Play("reset");
 	}
-	public async void interact(){
+	public async void interact(Camera3D playerCam){
 		if(interactable){
 			interactable = false;
 			if(open)

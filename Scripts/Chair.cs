@@ -20,7 +20,7 @@ public partial class Chair : StaticBody3D, Interactable
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override async void _Process(double delta)
+	public override void _Process(double delta)
 	{
 		if(occupied && Input.IsActionJustPressed("interact2")){
 			computerMonitor.active = false;
