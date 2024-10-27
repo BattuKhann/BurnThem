@@ -34,18 +34,21 @@ public partial class Grave : Node3D, Interactable
 	{
 		//GD.Print("should spawn");
 		// Instance the enemy
-		CharacterBody3D enemy = ghost.Instantiate<CharacterBody3D>();
+		Ghost enemy = ghost.Instantiate<Ghost>();
 
 		// Set the position of the enemy
 		enemy.GlobalTransform = new Transform3D(Basis.Identity, position);
-
-		Ghost enemyasGhost = (Ghost) enemy;
-		enemyasGhost.frozen = false;
-		enemyasGhost.UnFreeze();
+		enemy.UnFreeze();
 
 		// Add the enemy to the current scene
-		GetTree().Root.AddChild(enemyasGhost);
-		enemyasGhost.AddToGroup("ghost");
+		GetTree().Root.AddChild(enemy);
+		enemy.AddToGroup("ghost");
+
+		if (enemy != null) {
+			enemy.UnFreeze();
+			enemy.RefreshPlayer();
+			GD.Print("ghost isnt null");
+		}
 
         //AddChild(enemy);
 
@@ -53,7 +56,7 @@ public partial class Grave : Node3D, Interactable
 		foreach (CharacterBody3D ghost in ghosts)
 		{
 			// Perform action on each ghost
-			GD.Print("Found ghost in group: ", ghost.Name);
+			//GD.Print("Found ghost in group: ", ghost.Name);
 		}
 
 	}
