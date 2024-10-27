@@ -33,18 +33,30 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
 	{
-		var dir = new Vector3();
+		// Check if the ghost is frozen; if so, stop movement
+        if (frozen)
+        {
+            Velocity = Vector3.Zero; // Reset velocity when frozen
+            return;
+        }
 
-		navAgent.TargetPosition = player.GlobalPosition;
+        // Ensure the player is set
+        if (player != null)
+        {
+            // Set the target position for the navigation agent
+            navAgent.TargetPosition = player.GlobalPosition;
 
-		dir = navAgent.GetNextPathPosition() - GlobalPosition;
-		dir = dir.Normalized();
+            // Calculate the direction towards the next path position
+            Vector3 dir = navAgent.GetNextPathPosition() - GlobalPosition;
+            dir = dir.Normalized();
 
-		Velocity = Velocity.Lerp(dir * Speed, (float)(accel * delta));
+            // Update velocity using linear interpolation for smooth movement
+            Velocity = Velocity.Lerp(dir * Speed, (float)(accel * delta));
 
-		if (!frozen) {
-			MoveAndSlide();
-		}
+            // Move the ghost with the updated velocity
+            MoveAndSlide();
+        }
+
 	}
 
 	public void Freeze() {

@@ -11,7 +11,7 @@ albedo_color = Color(0.0941176, 0.658824, 1, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7d3e4"]
 radius = 0.6
 
-[node name="Ghost" type="CharacterBody3D"]
+[node name="Ghost" type="CharacterBody3D" groups=["ghost"]]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_qhgtl")
@@ -24,4 +24,6 @@ surface_material_override/0 = SubResource("ORMMaterial3D_ktedq")
 shape = SubResource("CylinderShape3D_7d3e4")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+height = 2.0
+keep_y_velocity = false
 debug_enabled = true
