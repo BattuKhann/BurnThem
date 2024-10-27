@@ -65,7 +65,7 @@ public partial class Grave : Node3D, Interactable
 		ghost.Free();
 	}
 
-	public void interact(){
+	public void interact(Camera3D camera){
 		
 	}
 
