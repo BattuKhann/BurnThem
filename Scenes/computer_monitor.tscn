@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce4fr1xui2pvy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nck3r"]
-size = Vector3(0.5, 0.5, 0.1)
+size = Vector3(1, 0.6, 0.001)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fby8s"]
 viewport_path = NodePath("CameraView1/SubViewport")
@@ -12,5 +12,5 @@ viewport_path = NodePath("CameraView1/SubViewport")
 mesh = SubResource("BoxMesh_nck3r")
 
 [node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00724457)
 texture = SubResource("ViewportTexture_fby8s")
