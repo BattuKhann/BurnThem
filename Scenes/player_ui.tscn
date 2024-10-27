@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://1iorcygcaoe7"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerUi.cs" id="1_e3f8r"]
+
+[node name="PlayerUi" type="Control"]
+custom_minimum_size = Vector2(500, 27)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e3f8r")
+
+[node name="StaminaBar" type="ProgressBar" parent="."]
+modulate = Color(0.129412, 1, 1, 1)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 945.0
+offset_right = 564.0
+offset_bottom = 972.0
+value = 100.0
+show_percentage = false

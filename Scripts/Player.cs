@@ -14,6 +14,8 @@ public partial class Player : CharacterBody3D
 	private Camera3D camera;
 	private Area3D losObject;
 	private Timer losTimer;
+	private Control PlayerUiObject;
+	private PlayerUi playerUi;
 
 	private Array<Ghost> ghosts;
 
@@ -25,6 +27,11 @@ public partial class Player : CharacterBody3D
 	const float BOB_FREQ = 2.0f;
 	const float BOB_AMP = 0.08f;
 	float t_bob = 0f;
+
+	//game variables
+	private double Stamina = 100;
+	private int StaminaChange;
+	private bool tired = false;
 
 	public override void _Ready()
 	{
@@ -45,6 +52,9 @@ public partial class Player : CharacterBody3D
 
 		losObject = camera.GetNode<Area3D>("LineOfSightObject");
 		losTimer = GetNode<Timer>("VisionTimer");
+
+		PlayerUiObject = GetNode<Control>("PlayerUi");
+		playerUi = (PlayerUi)PlayerUiObject;
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -61,15 +71,20 @@ public partial class Player : CharacterBody3D
 		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		if (Input.IsActionJustPressed("jump") && IsOnFloor() && Stamina > 20)
 		{
 			velocity.Y = JumpVelocity;
+			Stamina -= 20;
 		}
 
-		Speed = Input.IsActionPressed("sprint")? SPRINT_SPEED : WALK_SPEED;
+		if(Input.IsActionPressed("sprint") && !tired){
+			Speed = SPRINT_SPEED;
+			StaminaChange = -30;
+		} else {
+			Speed = WALK_SPEED;
+			StaminaChange = 5;
+		}
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
 		Vector3 direction = (head.Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		if(IsOnFloor()){
@@ -82,6 +97,7 @@ public partial class Player : CharacterBody3D
 			{
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+				StaminaChange = 10;
 			}
 		} else {
 			velocity.X = Mathf.Lerp(velocity.X, direction.X * Speed, (float)delta * 3.0f);
@@ -103,6 +119,15 @@ public partial class Player : CharacterBody3D
 		Transform3D lookTransform = camera.Transform;
 		lookTransform.Origin = _headbob(t_bob);
 		camera.Transform = lookTransform;
+
+		Stamina += StaminaChange * delta;
+		if(Stamina <= 0){
+			Stamina = 0;
+			tired = true;
+		} else if(Stamina > 20)
+			tired = false;
+
+		playerUi.setStamina(Stamina);
 
 		MoveAndSlide();
 	}

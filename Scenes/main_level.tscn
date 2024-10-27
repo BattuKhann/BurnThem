@@ -1,21 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://c50hwf20s8pqd"]
+[gd_scene load_steps=32 format=3 uid="uid://c50hwf20s8pqd"]
 
 [ext_resource type="PackedScene" uid="uid://cv0hgxim7cu4b" path="res://Scenes/Door.tscn" id="1_347rl"]
 [ext_resource type="PackedScene" uid="uid://cbtk707kmrwcm" path="res://Scenes/Player.tscn" id="2_s04ik"]
 [ext_resource type="PackedScene" uid="uid://bd3xruu16kyk3" path="res://Scenes/security_camera.tscn" id="2_ufo4p"]
 [ext_resource type="PackedScene" uid="uid://yjxqcire6dcq" path="res://Assets/office_desk/scene.gltf" id="4_33lyx"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lv7r4"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_q8at7"]
-sky_material = SubResource("ProceduralSkyMaterial_lv7r4")
-
-[sub_resource type="Environment" id="Environment_nu6bb"]
-background_mode = 2
-sky = SubResource("Sky_q8at7")
-tonemap_mode = 2
+[ext_resource type="PackedScene" uid="uid://ce4fr1xui2pvy" path="res://Scenes/computer_monitor.tscn" id="5_rweio"]
+[ext_resource type="PackedScene" uid="uid://dbfmrbnn3jncl" path="res://Scenes/Grave.tscn" id="7_o76px"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjqc4"]
 albedo_color = Color(0.443137, 0.47451, 0.494118, 1)
@@ -72,27 +62,45 @@ size = Vector3(12, 20, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x3hj4"]
 data = PackedVector3Array(-5, 5, 0.5, 5, 5, 0.5, -5, -5, 0.5, 5, 5, 0.5, 5, -5, 0.5, -5, -5, 0.5, 5, 5, -0.5, -5, 5, -0.5, 5, -5, -0.5, -5, 5, -0.5, -5, -5, -0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5, 5, -5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, -5, 0.5, -5, 5, -0.5, -5, 5, 0.5, -5, -5, -0.5, -5, 5, 0.5, -5, -5, 0.5, -5, -5, -0.5, 5, 5, 0.5, -5, 5, 0.5, 5, 5, -0.5, -5, 5, 0.5, -5, 5, -0.5, 5, 5, -0.5, -5, -5, 0.5, 5, -5, 0.5, -5, -5, -0.5, 5, -5, 0.5, 5, -5, -0.5, -5, -5, -0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcwio"]
-albedo_color = Color(0.295867, 0.295866, 0.295866, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dhmpy"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5ncth"]
-material = SubResource("StandardMaterial3D_tcwio")
-size = Vector2(100, 100)
+[sub_resource type="Sky" id="Sky_10wuj"]
+sky_material = SubResource("ProceduralSkyMaterial_dhmpy")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_py6g5"]
-data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+[sub_resource type="Environment" id="Environment_ij4mt"]
+background_mode = 2
+sky = SubResource("Sky_10wuj")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nmrtb"]
+size = Vector2(200, 200)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0vpe6"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3hnwd"]
+viewport_path = NodePath("VirtCam/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8lfm"]
+albedo_color = Color(0.273873, 0.273873, 0.273873, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eeff5"]
+material = SubResource("StandardMaterial3D_w8lfm")
+size = Vector3(15, 0.1, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jrxjt"]
+material = SubResource("StandardMaterial3D_w8lfm")
+size = Vector3(60, 0.1, 60)
 
 [node name="MainLevel" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_nu6bb")
+[node name="Player" parent="." instance=ExtResource("2_s04ik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.569, 53.937)
 
 [node name="SecurityRoom" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -20.0077, 0, 0)
 
 [node name="WallN" type="MeshInstance3D" parent="SecurityRoom"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.2457, 2.5, 0)
@@ -173,13 +181,193 @@ transform = Transform3D(0.20718, 0.435498, -0.876024, -0.100231, 0.90019, 0.4238
 [node name="Sketchfab_Scene" parent="SecurityRoom" instance=ExtResource("4_33lyx")]
 transform = Transform3D(-1.74846e-09, 0, 0.04, 0, 0.05, 0, -0.04, 0, -1.74846e-09, 7.99234, 0, -3.24633)
 
-[node name="Player" parent="." instance=ExtResource("2_s04ik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.552, 1, -3.661)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ij4mt")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_5ncth")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
+shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.289505, 7.62939e-06, 0.0296402)
+mesh = SubResource("PlaneMesh_nmrtb")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_py6g5")
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0vpe6")
+
+[node name="Computer Monitor" parent="." instance=ExtResource("5_rweio")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.10875, 3.50202, 0)
+
+[node name="MeshInstance3D" parent="Computer Monitor" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Sprite3D" parent="Computer Monitor/MeshInstance3D" index="0"]
+texture = SubResource("ViewportTexture_3hnwd")
+
+[node name="SecurityCamera" parent="." instance=ExtResource("2_ufo4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26212, 2.96818, 9.08319)
+
+[node name="Camera3D" parent="SecurityCamera/VirtCam/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26212, 2.96818, 8.96605)
+
+[node name="Front Yard" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 38.3557)
+
+[node name="Grave" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 43)
+
+[node name="Grave2" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 41)
+
+[node name="Grave3" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 39)
+
+[node name="Grave4" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 43)
+
+[node name="Grave5" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 41)
+
+[node name="Grave6" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 39)
+
+[node name="Grave7" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 43)
+
+[node name="Grave8" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 41)
+
+[node name="Grave9" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 39)
+
+[node name="Grave10" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 43)
+
+[node name="Grave11" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 41)
+
+[node name="Grave12" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 39)
+
+[node name="Grave13" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 43)
+
+[node name="Grave14" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 41)
+
+[node name="Grave15" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 39)
+
+[node name="Grave16" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 43)
+
+[node name="Grave17" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 41)
+
+[node name="Grave18" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 39)
+
+[node name="Grave19" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 43)
+
+[node name="Grave20" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 41)
+
+[node name="Grave21" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 39)
+
+[node name="Grave22" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 43)
+
+[node name="Grave23" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 41)
+
+[node name="Grave24" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 39)
+
+[node name="Grave25" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 37.0014)
+
+[node name="Grave26" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 35.0014)
+
+[node name="Grave27" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2405, 0, 33.0014)
+
+[node name="Grave28" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 37.0014)
+
+[node name="Grave29" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 35.0014)
+
+[node name="Grave30" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.2405, 0, 33.0014)
+
+[node name="Grave31" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 37.0014)
+
+[node name="Grave32" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 35.0014)
+
+[node name="Grave33" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.2405, 0, 33.0014)
+
+[node name="Grave34" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 37.0014)
+
+[node name="Grave35" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 35.0014)
+
+[node name="Grave36" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.2405, 0, 33.0014)
+
+[node name="Grave37" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 37.0014)
+
+[node name="Grave38" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 35.0014)
+
+[node name="Grave39" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.2405, 0, 33.0014)
+
+[node name="Grave40" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 37.0014)
+
+[node name="Grave41" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 35.0014)
+
+[node name="Grave42" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2405, 0, 33.0014)
+
+[node name="Grave43" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 37.0014)
+
+[node name="Grave44" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 35.0014)
+
+[node name="Grave45" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.2405, 0, 33.0014)
+
+[node name="Grave46" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 37.0014)
+
+[node name="Grave47" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 35.0014)
+
+[node name="Grave48" parent="Front Yard" instance=ExtResource("7_o76px")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.24055, 0, 33.0014)
+
+[node name="Road" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.3289, 0, 0)
+mesh = SubResource("BoxMesh_eeff5")
+
+[node name="Parking Lot" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, -53.46)
+mesh = SubResource("BoxMesh_jrxjt")
+skeleton = NodePath("../Road")
+
+[editable path="Computer Monitor"]
+[editable path="SecurityCamera"]
