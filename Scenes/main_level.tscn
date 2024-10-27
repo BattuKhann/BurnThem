@@ -96,7 +96,7 @@ size = Vector3(60, 0.1, 60)
 
 [node name="MainLevel" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("2_s04ik")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_s04ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.569, 53.937)
 
 [node name="SecurityRoom" type="Node3D" parent="."]

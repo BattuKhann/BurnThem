@@ -3,8 +3,9 @@ using System;
 
 public partial class Grave : Node3D, Interactable
 {
+	private PackedScene ghost = (PackedScene) ResourceLoader.Load("res://Scenes/Ghost.tscn");
 
-	private PackedScene ghost;
+	private Marker3D spawnPos;
 	public bool opened = false;
 	public bool burning = false;
 	public bool occupied = true;
@@ -12,9 +13,9 @@ public partial class Grave : Node3D, Interactable
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		ghost = (PackedScene) GD.Load("res://Scenes/Ghost.tscn");
+		spawnPos = GetNode<Marker3D>("Marker3D");
 
-		SpawnEnemy(new Vector3(0, 10, 0));
+		SpawnEnemy(spawnPos.GlobalPosition);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,10 +27,11 @@ public partial class Grave : Node3D, Interactable
 	public void SpawnEnemy(Vector3 position)
 	{
 		// Instance the enemy
-		RigidBody3D enemy = (RigidBody3D) ghost.Instantiate();
+		CharacterBody3D enemy = ghost.Instantiate<CharacterBody3D>();
 
 		// Set the position of the enemy
 		enemy.GlobalTransform = new Transform3D(Basis.Identity, position);
+		enemy.AddToGroup("ghost");
 
 		// Add the enemy to the current scene
 		AddChild(enemy);
