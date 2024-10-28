@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://emo0xwptkrwi"
-path="res://.godot/imported/Parish Church Model+.blend-bdaa8965a00314d8e0f7446511255957.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Blend/Parish Church Model+.blend"
-dest_files=["res://.godot/imported/Parish Church Model+.blend-bdaa8965a00314d8e0f7446511255957.scn"]
 
 [params]
 
