@@ -14,6 +14,7 @@ public partial class Ghost : CharacterBody3D
 	private NavigationAgent3D navAgent;
 	[Export]
 	public CharacterBody3D player;
+	public float ChaseRange = 40.0f;
 
     public override void _Ready()
     {
@@ -35,22 +36,36 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
 	{
-		//RefreshPlayer();
-
+		// Check if player is not null and calculate the distance
 		if (player != null)
-        {
-            // Only move the ghost if it is not frozen
-            if (!frozen)
-            {
-                navAgent.TargetPosition = player.GlobalPosition;
-                Vector3 dir = navAgent.GetNextPathPosition() - GlobalPosition;
-                dir = dir.Normalized();
-
-                Velocity = Velocity.Lerp(dir * Speed, (float)(accel * delta));
-                MoveAndSlide();
-            }
-        }
+		{
+			float distanceToPlayer = GlobalPosition.DistanceTo(player.GlobalPosition);
+			
+			// Only move and rotate the ghost if it's not frozen and within the chase range
+			if (!frozen && distanceToPlayer <= ChaseRange)
+			{
+				// Set the target position for the NavigationAgent
+				navAgent.TargetPosition = player.GlobalPosition;
+				
+				// Calculate the direction to move in
+				Vector3 dir = navAgent.GetNextPathPosition() - GlobalPosition;
+				dir = dir.Normalized();
+				
+				// Rotate to face the player
+				if (dir.Length() > 0)
+				{
+					// Calculate the target rotation using LookAt with only the Y-axis rotation
+					Vector3 lookAtPosition = new Vector3(player.GlobalPosition.X, GlobalPosition.Y, player.GlobalPosition.Z);
+					LookAt(lookAtPosition);
+				}
+				
+				// Update the velocity to move toward the player
+				Velocity = Velocity.Lerp(dir * Speed, (float)(accel * delta));
+				MoveAndSlide();
+			}
+		}
 	}
+
 
 	public void RefreshPlayer() {
 		//var players = GetTree().GetNodesInGroup("player");

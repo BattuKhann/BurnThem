@@ -36,7 +36,7 @@ public partial class Chair : StaticBody3D, Interactable
 		}
 	}
 
-	public void interact(Camera3D playerCamera)
+	public void interact(Camera3D playerCamera, double delta)
 	{
 		computerMonitor.active = true;
 		SetCollisionLayerValue(2, false);

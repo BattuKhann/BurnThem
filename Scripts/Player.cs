@@ -184,4 +184,12 @@ public partial class Player : CharacterBody3D
 			}
 		}	
 	}
+
+	public void playDigging(){
+
+	}
+
+	public void playFire(){
+		
+	}
 }

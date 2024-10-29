@@ -4,18 +4,25 @@ using System;
 public partial class Grave : Node3D, Interactable
 {
 	private PackedScene ghost;
-	private bool debug = false;
+	private Ghost enemy;
+	private StaticBody3D graveBody;
+	private Node3D deadman;
+	private Node3D burntman;
 
 	private Marker3D spawnPos;
 	public bool opened = false;
 	public bool burning = false;
 	public bool occupied = true;
 	public bool body = true;
+	public float digProgress = 1.0f;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		ghost = (PackedScene) ResourceLoader.Load("res://Scenes/Ghost.tscn");
 		spawnPos = GetNode<Marker3D>("Marker3D");
+		graveBody = GetNode<StaticBody3D>("Body");
+		deadman = GetNode<Node3D>("deadman");
+		burntman = GetNode<Node3D>("deadman_burnt");
 
 		//SpawnEnemy(spawnPos.GlobalPosition);
 	}
@@ -23,18 +30,23 @@ public partial class Grave : Node3D, Interactable
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		// debug code to replace in _Ready()
-		if (!debug) {
-			debug = true;
-			SpawnEnemy(spawnPos.GlobalPosition);
+		if(opened){
+			graveBody.Visible = false;
+			deadman.Visible = true;
+			if(!body){
+				enemy.Free();
+				deadman.Visible = false;
+				burntman.Visible = false;
+			}
 		}
+		
 	}
 
 	public void SpawnEnemy(Vector3 position)
 	{
 		//GD.Print("should spawn");
 		// Instance the enemy
-		Ghost enemy = ghost.Instantiate<Ghost>();
+		enemy = ghost.Instantiate<Ghost>();
 
 		// Set the position of the enemy
 		enemy.GlobalTransform = new Transform3D(Basis.Identity, position);
@@ -46,11 +58,11 @@ public partial class Grave : Node3D, Interactable
 		enemy.AddToGroup("ghost");
 		//enemy._Ready();
 
-		if (enemy != null) {
+		/*if (enemy != null) {
 			enemy.UnFreeze();
 			enemy.RefreshPlayer();
-			GD.Print("ghost isnt null");
-		}
+			//GD.Print("ghost isnt null");
+		}*/
 
 		//AddChild(enemy);
 
@@ -64,11 +76,19 @@ public partial class Grave : Node3D, Interactable
 	}
 
 	public void KillEnemy(){
-		ghost.Free();
+		enemy.Free();
 	}
 
-	public void interact(Camera3D playerCam){
-		
+	public void interact(Camera3D playerCam, double delta){
+		GD.Print(digProgress);
+		if(!opened){
+			digProgress -= 0.1f * (float)delta;
+			opened = digProgress <= 0;
+		} else if (body){
+			body = false;
+			occupied = false;
+			KillEnemy();
+		}
 	}
 
 	public String getInteractType(){
@@ -77,5 +97,9 @@ public partial class Grave : Node3D, Interactable
 		} else {
 			return "Dig";
 		}
+	}
+
+	public float getProgress(){
+		return (1 - digProgress) * 100;
 	}
 }

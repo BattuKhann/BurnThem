@@ -45,3 +45,10 @@ offset_bottom = 24.0
 text = "E"
 label_settings = SubResource("LabelSettings_r3gp4")
 metadata/_edit_use_anchors_ = true
+
+[node name="DigProgress" type="ProgressBar" parent="Canvas"]
+offset_left = 853.0
+offset_top = 527.0
+offset_right = 1053.0
+offset_bottom = 554.0
+show_percentage = false

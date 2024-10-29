@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://6xxjggmgqrht"]
+[gd_scene load_steps=8 format=4 uid="uid://6xxjggmgqrht"]
 
 [ext_resource type="Script" path="res://Scripts/Ghost.cs" id="1_qhgtl"]
 [ext_resource type="Texture2D" uid="uid://waysao7hpl7r" path="res://Assets/low_poly_ghost_character/textures/lambert2_baseColor.png" id="2_sdilk"]
@@ -47,16 +47,25 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x1lnc")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rx187"]
+size = Vector3(1, 1.36621, 1)
+
 [node name="Ghost" type="CharacterBody3D" groups=["ghost"]]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.5, 0)
+collision_layer = 4
+collision_mask = 4
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_qhgtl")
 
 [node name="polySurface26_lambert2_0" type="MeshInstance3D" parent="."]
-transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, -2.71195, 6.09247e-16, -0.013208)
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 0.0740967, 0, 2.86908)
 mesh = SubResource("ArrayMesh_xpas0")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.274658, 0)
+shape = SubResource("BoxShape3D_rx187")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 height = 2.0
