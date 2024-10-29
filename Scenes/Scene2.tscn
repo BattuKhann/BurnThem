@@ -30,6 +30,9 @@ sky_material = SubResource("ProceduralSkyMaterial_lu0k7")
 background_mode = 2
 sky = SubResource("Sky_eg0lv")
 tonemap_mode = 2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_anisotropy = -0.25
 
 [node name="Scene2" type="Node3D"]
 
@@ -90,3 +93,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.17646, -0.03, 2.88073)
 
 [node name="Grave5" parent="." instance=ExtResource("2_qab4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.17646, -0.03, -2.65423)
+
+[node name="FogVolume" type="FogVolume" parent="."]
+size = Vector3(50, 1.5, 50)

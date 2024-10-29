@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6x3j5spfvtfl"]
+
+[ext_resource type="Shader" path="res://Materials/full_moon.gdshader" id="1_8gnow"]
+
+[resource]
+shader = ExtResource("1_8gnow")

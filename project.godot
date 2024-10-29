@@ -100,3 +100,4 @@ interact={
 [rendering]
 
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+environment/canvas_textures/default_texture_repeat=0

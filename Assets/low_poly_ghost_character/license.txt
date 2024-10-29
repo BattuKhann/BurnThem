@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Ghost Character
+* source:	https://sketchfab.com/3d-models/low-poly-ghost-character-4e6b7329c21b400e806d078dd0969212
+* author:	TheoClarke (https://sketchfab.com/TheoClarke)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Ghost Character" (https://sketchfab.com/3d-models/low-poly-ghost-character-4e6b7329c21b400e806d078dd0969212) by TheoClarke (https://sketchfab.com/TheoClarke) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
