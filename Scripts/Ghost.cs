@@ -19,9 +19,11 @@ public partial class Ghost : CharacterBody3D
 	public CharacterBody3D player;
 	public float ChaseRange = 40.0f;
 	private Vector3 wanderTarget;
+	private GameController gameController;
 
     public override void _Ready()
     {
+		gameController = (GameController)GetTree().Root.GetNode<Node3D>("MainLevel/GameController");
         navAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
 		timer = GetNode<Timer>("Timer");
 		RefreshPlayer();
@@ -42,6 +44,9 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
 	{
+		if(GlobalPosition.DistanceTo(player.GlobalPosition) <= 1){
+			gameController.GameOver();
+		}
 		// Check if player is not null and calculate the distance
 		if (player != null)
 		{

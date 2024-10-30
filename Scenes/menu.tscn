@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwraa1vlpwbok"]
+[gd_scene load_steps=4 format=3 uid="uid://cmmlw75l4q8vs"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.cs" id="1_5eoqi"]
 [ext_resource type="Texture2D" uid="uid://ca16mvaam7o2l" path="res://Assets/MenuBackground.jpg" id="1_hmi6s"]
@@ -45,6 +45,7 @@ theme_override_font_sizes/font_size = 70
 text = "Play"
 
 [node name="HighScore" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 1374.0
 offset_top = 82.0
 offset_right = 1537.0

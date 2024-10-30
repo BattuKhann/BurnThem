@@ -16,6 +16,7 @@ public partial class Player : CharacterBody3D
 	private Timer losTimer;
 	private Control PlayerUiObject;
 	private PlayerUi playerUi;
+	private GameController gameController;
 
 	private Array<Node> ghosts;
 
@@ -55,8 +56,10 @@ public partial class Player : CharacterBody3D
 
 		PlayerUiObject = GetNode<Control>("PlayerUi");
 		playerUi = (PlayerUi)PlayerUiObject;
+
+		gameController = (GameController)GetTree().Root.GetNode<Node3D>("MainLevel/GameController");
 	}
-	public override void _PhysicsProcess(double delta)
+    public override void _PhysicsProcess(double delta)
 	{
 		if(Input.IsActionJustPressed("ui_cancel")){
 			Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -126,11 +129,15 @@ public partial class Player : CharacterBody3D
 			tired = true;
 		} else if(Stamina > 20)
 			tired = false;
+		
+		if(Stamina >= 100){
+			Stamina = 100;
+		}
 
 		playerUi.setStamina(Stamina);
 		MoveAndSlide();
 	}
-
+	
 	private Vector3 _headbob(float time)
 	{
 		Vector3 pos = Vector3.Zero;

@@ -98,6 +98,6 @@ public partial class GameController : Node3D
 
 	public void GameOver()
 	{
-		// Implement your game over logic here
+		GetTree().ChangeSceneToFile("res://Scenes/menu.tscn");
 	}
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cbtk707kmrwcm"]
+[gd_scene load_steps=26 format=4 uid="uid://cbtk707kmrwcm"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_lwy1h"]
 [ext_resource type="PackedScene" uid="uid://7j5ahbmsrpjw" path="res://Scenes/ConeLOS.tscn" id="2_2icj0"]
@@ -201,7 +201,10 @@ _data = {
 "RESET": SubResource("Animation_6we62")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2hcl4"]
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 17
 script = ExtResource("1_lwy1h")
 
 [node name="Body" type="MeshInstance3D" parent="."]
@@ -302,4 +305,11 @@ libraries = {
 "": SubResource("AnimationLibrary_ejf4c")
 }
 
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 144
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_2hcl4")
+
 [connection signal="timeout" from="VisionTimer" to="." method="_on_vision_timer_Timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
