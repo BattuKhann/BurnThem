@@ -16,6 +16,7 @@ public partial class PlayerInteract : RayCast3D
 		playerCam = (Camera3D)GetParent();
 		animationPlayer = GetTree().Root.GetNode<CharacterBody3D>("MainLevel/Player").GetNode<AnimationPlayer>("AnimationPlayer");
 		Shovel = GetTree().Root.GetNode<CharacterBody3D>("MainLevel/Player").GetNode<Node3D>("Head").GetNode<Node3D>("BestShovel");
+		Flamethrower = GetTree().Root.GetNode<CharacterBody3D>("MainLevel/Player").GetNode<Node3D>("Head").GetNode<Camera3D>("PlayerCamera").GetNode<Node3D>("FlameThrower");
 	}
 
 	public override void _Process(double delta)
@@ -27,34 +28,45 @@ public partial class PlayerInteract : RayCast3D
 				pop_up.setText(hitObj.getInteractType());
 				pop_up.GetNode<CanvasLayer>("Canvas").Visible = true;
 
-				if(hitObj.getInteractType() == "Dig")
+				if(hitObj.getInteractType() == "Dig"){
 					pop_up.setProgress(((Grave)((Node3D)hit).GetParent()).getProgress());
-				else
-					pop_up.GetNode<CanvasLayer>("Canvas").GetNode<ProgressBar>("DigProgress").Visible = false;
-				
-				if (Input.IsActionPressed("interact")){
+
+					if (Input.IsActionPressed("interact")){
 					hitObj.interact(playerCam, delta);
 
-					if(hitObj.getInteractType() == "Dig"){
-						Shovel.Visible = true;
-						animationPlayer.Play("Digging");
-					} else{
+						if(hitObj.getInteractType() == "Dig"){
+							Shovel.Visible = true;
+							Flamethrower.Visible = false;
+							animationPlayer.Play("Digging");
+						} else if(hitObj.getInteractType() == "Burn"){
+							Shovel.Visible = false;
+							animationPlayer.Stop();
+							Flamethrower.Visible = true;
+							animationPlayer.Play("Burning");
+						}
+					} else {
 						Shovel.Visible = false;
+						//Flamethrower.Visible = false;
 						animationPlayer.Stop();
 					}
 				} else {
-					Shovel.Visible = false;
-					animationPlayer.Stop();
+					pop_up.GetNode<CanvasLayer>("Canvas").GetNode<ProgressBar>("DigProgress").Visible = false;
+					
+					if (Input.IsActionJustPressed("interact")){
+						hitObj.interact(playerCam, delta);
+					}
 				}
 			} else {
 				pop_up.GetNode<CanvasLayer>("Canvas").Visible = false;
 				Shovel.Visible = false;
-				animationPlayer.Stop();
+				//Flamethrower.Visible = false;
+				//animationPlayer.Stop();
 			}
 		} else {
 			pop_up.GetNode<CanvasLayer>("Canvas").Visible = false;
 			Shovel.Visible = false;
-			animationPlayer.Stop();
+			//Flamethrower.Visible = false;
+			//animationPlayer.Stop();
 		}
 	}
 }

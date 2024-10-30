@@ -23,27 +23,26 @@ public partial class Grave : Node3D, Interactable
 		graveBody = GetNode<StaticBody3D>("Body");
 		deadman = GetNode<Node3D>("deadman");
 		burntman = GetNode<Node3D>("deadman_burnt");
-
 		//SpawnEnemy(spawnPos.GlobalPosition);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if(opened){
+		/*if(opened && body){
 			graveBody.Visible = false;
 			deadman.Visible = true;
-			if(!body){
-				enemy.Free();
-				deadman.Visible = false;
-				burntman.Visible = false;
-			}
-		}
+		} else if(!body){
+			enemy.Free();
+			deadman.Visible = false;
+			burntman.Visible = true;
+		}*/
 		
 	}
 
 	public void SpawnEnemy(Vector3 position)
 	{
+		occupied = false;
 		//GD.Print("should spawn");
 		// Instance the enemy
 		enemy = ghost.Instantiate<Ghost>();
@@ -53,8 +52,8 @@ public partial class Grave : Node3D, Interactable
 		enemy.UnFreeze();
 
 		// Add the enemy to the current scene
-		GetTree().Root.AddChild(enemy);
-		//AddChild(enemy);
+		//GetTree().Root.AddChild(enemy);
+		this.AddChild(enemy);
 		enemy.AddToGroup("ghost");
 		//enemy._Ready();
 
@@ -76,30 +75,47 @@ public partial class Grave : Node3D, Interactable
 	}
 
 	public void KillEnemy(){
-		enemy.Free();
+		ghost.Free();
 	}
 
 	public void interact(Camera3D playerCam, double delta){
-		GD.Print(digProgress);
 		if(!opened){
 			digProgress -= 0.1f * (float)delta;
 			opened = digProgress <= 0;
-		} else if (body){
+			if(opened){
+				graveBody.Visible = false;
+				deadman.Visible = false;
+			}
+		}
+		
+		if (opened && body){
 			body = false;
-			occupied = false;
 			KillEnemy();
+			deadman.Visible = false;
+			burntman.Visible = true;
+
+			if(occupied){
+				Scream();
+			}
 		}
 	}
 
 	public String getInteractType(){
 		if(opened && body){
 			return "Burn";
-		} else {
+		} else if (!opened) {
 			return "Dig";
+		} else {
+			graveBody.SetCollisionLayerValue(2, false);
+			return "invalid";
 		}
 	}
 
 	public float getProgress(){
 		return (1 - digProgress) * 100;
+	}
+
+	public void Scream(){
+
 	}
 }
