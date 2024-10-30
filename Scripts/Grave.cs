@@ -40,7 +40,7 @@ public partial class Grave : Node3D, Interactable
 		
 	}
 
-	public Ghost SpawnEnemy(Vector3 position)
+	public Ghost SpawnEnemy()
 	{
 		occupied = false;
 		//GD.Print("should spawn");
@@ -48,12 +48,12 @@ public partial class Grave : Node3D, Interactable
 		enemy = ghost.Instantiate<Ghost>();
 
 		// Set the position of the enemy
-		enemy.GlobalTransform = new Transform3D(Basis.Identity, position);
+		enemy.GlobalTransform = new Transform3D(Basis.Identity, spawnPos.GlobalPosition);
 		enemy.UnFreeze();
 
 		// Add the enemy to the current scene
-		//GetTree().Root.AddChild(enemy);
-		this.AddChild(enemy);
+		GetTree().Root.AddChild(enemy);
+		//this.AddChild(enemy);
 		enemy.AddToGroup("ghost");
 		//enemy._Ready();
 

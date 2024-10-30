@@ -54,7 +54,7 @@ public partial class GameController : Node3D
 		if (selectedGrave.occupied)
 		{
 			// Spawn a ghost at the selected grave's spawn position
-			selectedGrave.SpawnEnemy(selectedGrave.spawnPos.GlobalPosition);
+			selectedGrave.SpawnEnemy();
 			unSpawned.Remove(selectedGrave);
 			spawned.Add(selectedGrave);
 			GD.Print("Ghost spawned at a random grave.");
