@@ -9,7 +9,7 @@ public partial class Grave : Node3D, Interactable
 	private Node3D deadman;
 	private Node3D burntman;
 
-	private Marker3D spawnPos;
+	public Marker3D spawnPos;
 	public bool opened = false;
 	public bool burning = false;
 	public bool occupied = true;
@@ -40,7 +40,7 @@ public partial class Grave : Node3D, Interactable
 		
 	}
 
-	public void SpawnEnemy(Vector3 position)
+	public Ghost SpawnEnemy(Vector3 position)
 	{
 		occupied = false;
 		//GD.Print("should spawn");
@@ -65,12 +65,7 @@ public partial class Grave : Node3D, Interactable
 
 		//AddChild(enemy);
 
-		var ghosts = GetTree().GetNodesInGroup("ghost");
-		foreach (CharacterBody3D ghost in ghosts)
-		{
-			// Perform action on each ghost
-			//GD.Print("Found ghost in group: ", ghost.Name);
-		}
+		return enemy;
 
 	}
 

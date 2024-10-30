@@ -15,7 +15,7 @@ public partial class Ghost : CharacterBody3D
 	private Timer timer;
 	[Export]
 	public CharacterBody3D player;
-	public float ChaseRange = 20.0f;
+	public float ChaseRange = 40.0f;
 	private Vector3 wanderTarget;
 
     public override void _Ready()

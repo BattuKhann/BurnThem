@@ -214,7 +214,7 @@ shape = SubResource("ConvexPolygonShape3D_8arb4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.569324, 0)
 
 [node name="BestShovel" type="Node3D" parent="Head"]
-transform = Transform3D(-0.284083, 1.97972, -7.16657e-06, 0, -7.23997e-06, -2, -1.97972, -0.284083, 1.02838e-06, 0.301242, -0.502, -0.525)
+transform = Transform3D(-0.284083, 1.97972, -7.16657e-06, 0, -7.23998e-06, -2, -1.97972, -0.284083, 1.02838e-06, 0.301242, -0.502, -0.525)
 
 [node name="group33" type="Node3D" parent="Head/BestShovel"]
 

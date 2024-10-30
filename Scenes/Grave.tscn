@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=4 uid="uid://dbfmrbnn3jncl"]
 
 [ext_resource type="Script" path="res://Scripts/Grave.cs" id="1_6hgjx"]
-[ext_resource type="PackedScene" uid="uid://blpy5j3at8tv4" path="res://Scenes/grave_base.tscn" id="2_5sr7e"]
-[ext_resource type="PackedScene" uid="uid://cxgo82keywf3j" path="res://Scenes/gravestone3.tscn" id="3_53ikf"]
+[ext_resource type="PackedScene" path="res://Scenes/grave_base.tscn" id="2_5sr7e"]
+[ext_resource type="PackedScene" path="res://Scenes/gravestone3.tscn" id="3_53ikf"]
 [ext_resource type="PackedScene" uid="uid://cwfx2x7s70if3" path="res://Assets/deadman/source/deadman/deadman.fbx" id="4_v1pn7"]
 [ext_resource type="Texture2D" uid="uid://6u8nrsj1lg2h" path="res://Assets/deadman/source/deadman/HoboTexture_dead.png" id="5_vxrxm"]
 
@@ -633,4 +633,4 @@ skin = SubResource("Skin_4af0q")
 surface_material_override/0 = SubResource("StandardMaterial3D_vcky8")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81778, 1.37926, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3577, 2.42395, 0)
