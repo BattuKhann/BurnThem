@@ -36,6 +36,36 @@ public partial class GameController : Node3D
 				unSpawned.Add(grave);
 			}
 		}
+
+		gravesRoot = GetParent().GetNode<Node3D>("NavigationRegion3D/graves2");
+		
+		foreach (Node child in gravesRoot.GetChildren())
+		{
+			if (child is Grave grave)
+			{
+				unSpawned.Add(grave);
+			}
+		}
+
+		gravesRoot = GetParent().GetNode<Node3D>("NavigationRegion3D/graves3");
+		
+		foreach (Node child in gravesRoot.GetChildren())
+		{
+			if (child is Grave grave)
+			{
+				unSpawned.Add(grave);
+			}
+		}
+
+		gravesRoot = GetParent().GetNode<Node3D>("NavigationRegion3D/graves4");
+		
+		foreach (Node child in gravesRoot.GetChildren())
+		{
+			if (child is Grave grave)
+			{
+				unSpawned.Add(grave);
+			}
+		}
 	}
 
 	// Function to spawn a ghost at a random grave
