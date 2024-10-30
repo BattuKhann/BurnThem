@@ -9,6 +9,8 @@ public partial class Ghost : CharacterBody3D
 	
 	[Export]
 	public bool frozen = false;
+	[Export]
+	public bool wandering = false;
 
 	// init navigation agent
 	private NavigationAgent3D navAgent;
@@ -89,6 +91,7 @@ public partial class Ghost : CharacterBody3D
 
 	private void ChasePlayer(double delta)
 	{
+		wandering = false;
 		navAgent.TargetPosition = player.GlobalPosition;
 
 		Vector3 dir = navAgent.GetNextPathPosition() - GlobalPosition;
@@ -106,6 +109,7 @@ public partial class Ghost : CharacterBody3D
 
 	private void Wander(double delta)
 	{
+		wandering = true;
 		Vector3 dir = wanderTarget - GlobalPosition;
 		if (dir.Length() < 1.0f)
 		{
@@ -155,5 +159,9 @@ public partial class Ghost : CharacterBody3D
 
 	public void UnFreeze() {
 		frozen = false;
+	}
+
+	public bool isWandering() {
+		return this.wandering;
 	}
 }

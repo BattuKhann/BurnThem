@@ -169,8 +169,10 @@ public partial class Player : CharacterBody3D
 						var collider = (Node) result["collider"]; // Cast the collider to a Node
 						if (collider != null && collider.IsInGroup("ghost"))
 						{
-							ghost.Freeze();
-							frozenGhosts.Add(overlaps[i]);
+							if (!ghost.isWandering()) {
+								ghost.Freeze();
+								frozenGhosts.Add(overlaps[i]);
+							}
 						}
 					}
 				}
