@@ -12,6 +12,7 @@ public partial class Ghost : CharacterBody3D
 
 	// init navigation agent
 	private NavigationAgent3D navAgent;
+	private Timer timer;
 	[Export]
 	public CharacterBody3D player;
 	public float ChaseRange = 40.0f;
@@ -19,6 +20,7 @@ public partial class Ghost : CharacterBody3D
     public override void _Ready()
     {
         navAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
+		timer = GetNode<Timer>("Timer");
 		RefreshPlayer();
 
 		//var players = GetTree().GetNodesInGroup("player");
@@ -81,6 +83,10 @@ public partial class Ghost : CharacterBody3D
 		} */
 
 		player = (CharacterBody3D) GetTree().Root.GetNode("MainLevel/Player");
+	}
+
+	public void _on_timer_timeout() {
+		
 	}
 
 	public void Freeze() {

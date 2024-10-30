@@ -71,3 +71,6 @@ shape = SubResource("BoxShape3D_rx187")
 height = 2.0
 keep_y_velocity = false
 debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
